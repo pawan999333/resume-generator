@@ -71,13 +71,25 @@ function generateCV(){
     document.getElementById('addressT').innerHTML=
     document.getElementById('addressField').value;
 
-    document.getElementById('fbT').innerHTML=
-    document.getElementById('fbField').value;
+    // document.getElementById('fbT').innerHTML=
+    // document.getElementById('fbField').value;
 
-    document.getElementById('instaT').innerHTML=
+    document.getElementById('fbT').href = document.getElementById('fbField').value;
+
+
+    // document.getElementById('instaT').innerHTML=
+    // document.getElementById('instaField').value;
+    // document.getElementById('instaT').target = "_blank";
+
+    document.getElementById('instaT').href=
     document.getElementById('instaField').value;
+    // document.getElementById('instaT').target = "_blank";
 
-    document.getElementById('linkedT').innerHTML=
+    // document.getElementById('linkedT').innerHTML=
+    // document.getElementById('linkedField').value;
+    // document.getElementById('linkedT').target = "_blank";
+
+    document.getElementById('linkedT').href=
     document.getElementById('linkedField').value;
 
   //objective
@@ -149,5 +161,18 @@ function printCV(){
  
     document.getElementById('printButtonDiv').style.display='none';
 
-    window.print();
+    var element = document.getElementById('cv-template');
+    
+    // Use html2pdf to generate the PDF
+    html2pdf(element, {
+      margin:0,
+   
+        filename: 'resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    }).then(function() {
+        // Show the print button again
+        document.getElementById('cv-template').style.display = 'block';
+    });
 }

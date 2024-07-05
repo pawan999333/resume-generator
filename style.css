@@ -1,11 +1,14 @@
+
+
 #cv-template{
     display: none;
 }
 
 .myimg{
-    border: 1px solid red;
-    border-radius: 50%;
-    width: 200px;
+    margin-left: 14px;
+    border: 1px solid blue;
+    /* border-radius: 50%; */
+    width: 150px;
 }
 .background{
     background-color: aqua;

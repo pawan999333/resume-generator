@@ -6,54 +6,30 @@
     
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
     <link rel="stylesheet" href="style.css">
-    
     <style>
-      
-    
-     
         @media print {
             @page {
-                margin: 0; /* Remove margins */
-                color:aqua;
-            }
-            #cv-template{
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-             .row {
-                display: flex;
-                flex-wrap: nowrap;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            .col-md-3, .col-md-8 {
-                font-size: 20px !important;
-                /* float: none !important; */
-                /* display: inline-block !important; */
-                width: 33.333333% !important;
-                padding: 0 !important; /* Remove padding */
-                margin-right: 2% !important;
-                margin-top: 0px !important; /* Remove margin */
-                padding-top: 2% !important;
-                margin-left: 0 !important;
-                /* vertical-align: top !important; */
-            }
-            .col-md-8 {
-                width: 66.666667% !important;
-            }
-            .container.print-container {
-                width: 100% !important;
-                max-width: none !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
+                  margin-top: 1.5cqmax !important; /* Adjust this value as needed */
+    }
+    .myimg{
+        margin-left: 17px !important;
+    }
+
             body {
-                margin: 0; /* Remove default body margin */
-                padding: 0 !important;
+                -webkit-print-color-adjust: exact; /* Chrome, Safari */
+                color-adjust: exact;  /* Firefox */
             }
         }
-    </style>
+        .cv-section {
+            page-break-inside: avoid;
+        }
+       
+        </style>
+    
 </head>
 <body>
     
@@ -87,17 +63,18 @@
 
                 <div class="form-group mt-3">
                     <label for="">Select your photo</label>
-                    <input id="imgField" type="file" class="form-control">
+                    <input id="imgField" type="file" class="form-control"
+                    accept="image/png, image/jpeg">
                 </div>
                 <p class="text-secondary my-3">Important Links</p>
                 <div class="form-group mt-2">
-                    <label for="contactField">Facebook</label>
+                    <label for="contactField">Gmail</label>
                     <input type="text" id="fbField"
                     class="form-control"
                     placeholder="Enter here">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="instaField">Instagram</label>
+                    <label for="instaField">GitHub</label>
                     <input type="text" id="instaField"
                     class="form-control"
                     placeholder="Enter here">
@@ -170,34 +147,34 @@
     <div  id="cv-template">
 
         <div class="row d-flex" style="width: 100%;">
-            <div class="col-md-3 ml-5 text-center py-5 background">
+            <div class="col-md-3 text-center py-5 background">
                 <!-- first col -->
 
                 <img src="https://media.istockphoto.com/id/610003972/vector/vector-businessman-black-silhouette-isolated.jpg?s=612x612&w=0&k=20&c=Iu6j0zFZBkswfq8VLVW8XmTLLxTLM63bfvI6uXdkacM=" alt=""
-                class="img-fluid myimg" id="imgTemplate">
+                class="img-fluid myimg p-1" id="imgTemplate">
 
                 <div >
-                    <p id="nameT1">Pawan Kumar Sharma</p>
-                    <p id="contactT">+91665767677687877, +9166778888</p>
-                    <p id="addressT">567667 Sector 36 Noida, India</p>
+                    <p class="ml-3 mt-1" id="nameT1" style=" max-width: 100%;word-wrap: break-word;">Pawan Kumar Sharma</p>
+                    <p class="ml-3" id="contactT" style=" max-width: 100%;word-wrap: break-word;">+91665767677687877, +9166778888</p>
+                    <p class="ml-3" id="addressT" style=" max-width: 100%;word-wrap: break-word;">567667 Sector 36 Noida, India</p>
 
-                    <hr>
+                    <hr class="ml-3">
 
-                    <p><a id="fbT" href="#1">https://www.fackbook.com</a></p>
-                    <p><a id="instaT" href="#1">https://www.instagram.com</a></p>
-                    <p><a id="linkedT" href="#1">https://www.linkedin.com</a></p>
+                    <p><a id="fbT" href="#1" target="_blank" class="fa fa-github" style=" font-weight: bold;">&nbsp;Github</a></p>
+                    <p><a id="linkedT" href="#1" target="_blank" class="fa fa-envelope" style=" font-weight: bold;">&nbsp;Email</a></p>
+                    <p><a id="instaT" href="#1" target="_blank"  class="fa fa-linkedin" style=" font-weight: bold;">&nbsp;Linkedin</a></p>
 
                 </div>
 
             </div>
-            <div class="col-md-8 py-5">
+            <div class="col-md-9 py-2">
                 <!-- second col -->
                  <h1 class="text-center" id="nameT2"
                  style="font-weight: 980;">Pawan Kumar Sharma</h1>
 
                  <!-- objective card -->
                   <div class="card mt-4">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: aqua;">
                         <h3>Objective</h3>
                     </div>
                     <div class="card-body">
@@ -208,7 +185,7 @@
 
                   <!-- work experience -->
                   <div class="card mt-4">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: aqua;">
                         <h3>Work Experience</h3>
                     </div>
                     <div class="card-body">
@@ -221,8 +198,8 @@
                   </div>
 
                   <!-- Academic Qualification -->
-                  <div class="card mt-4">
-                    <div class="card-header">
+                  <div class="card mt-4 cv-section">
+                    <div class="card-header" style="background-color: aqua;">
                         <h3>Academic Qualification</h3>
                     </div>
                     <div class="card-body">
@@ -235,8 +212,8 @@
                   </div>
 
                   <!-- Projects -->
-                  <div class="card mt-4">
-                    <div class="card-header">
+                  <div class="card mt-4 cv-section">
+                    <div class="card-header" style="background-color: aqua;">
                         <h3>Projects</h3>
                     </div>
                     <div class="card-body">
@@ -259,6 +236,8 @@
         <button class="btn background"
         onclick="printCV()">Print CV</button>
       </div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
